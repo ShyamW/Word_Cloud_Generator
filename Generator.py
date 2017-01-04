@@ -37,7 +37,7 @@ class word_cloud:
 		
 	def generate():
 		text = get_text()
-		#call API
+		#call APi MethoD
 		
 				
 def main():
