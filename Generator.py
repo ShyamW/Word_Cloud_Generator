@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+
 """An API to make wordClouds"""
 class Cloud:
 	#file path containing words to cloud
@@ -9,8 +13,8 @@ class Cloud:
 	@param file_name
 		path to file with words
 	"""
-	def _init_(self, file_name):
-		self.word_file = file_name
+	def __init__(self, file_name):
+		Cloud.word_file = file_name
 
 	"""Removes common words from {@code line} (such as a, and, the) stored in badwords.txt
 	@param line
@@ -26,7 +30,7 @@ class Cloud:
 			for badword in f:
 				bad_words.append(badword.strip('\n'))
 		for bad in bad_words:
-			line = line.replace(bad)
+			line = line.replace(bad, '')
 		return line
 
 	"""Removes punctuation from {@code line}
@@ -51,16 +55,22 @@ class Cloud:
 		with open(Cloud.word_file) as f:
 			for line in f:
 				line = Cloud.prep_line(line)
-				words.join(line)
+				words = words.join(line)
 		return words
 
 	"""Generates WordCloud"""
-	def generate(self):
+	def form_cloud(self):
 		text = Cloud.get_words()
-		#call APi MethoD
-		
+		print text
+		wordcloud = WordCloud().generate_from_text(text)
+		plt.imshow(wordcloud)
+		plt.axis("off")
+		plt.show()
 
-	
+
+
+
+
 """API DEMONSTRATION"""
 cloud = Cloud(file_name = "file.txt")
-cloud.generate()
+cloud.form_cloud()
