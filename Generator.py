@@ -48,14 +48,17 @@ class Cloud:
 
 	"""Returns string of words from {@code Cloud.word_file}
 	@ensures
-		get_words is the sequence of words in Cloud.word_file"""
+		get_words is the sequence of words in Cloud.word_file
+	@returns words
+		String of words from {@code Cloud.word_file}
+	"""
 	@staticmethod
 	def get_words():
 		words = ''
 		with open(Cloud.word_file) as f:
 			for line in f:
 				line = Cloud.prep_line(line)
-				words = words.join(line)
+				words += line
 		return words
 
 	"""Generates WordCloud"""
