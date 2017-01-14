@@ -26,8 +26,9 @@ Python Script that forms wordclouds from text file
     * library required for wordcloud
 
             sudo apt-get install Image
-![alt tag](https://raw.githubusercontent.com/shyamw/Word_Cloud_Generator/master/Images/i_have_a_dream.png)
 -"I have a Dream" MLK
+![alt tag](https://raw.githubusercontent.com/shyamw/Word_Cloud_Generator/master/Images/i_have_a_dream.png)
+
 
 
 
