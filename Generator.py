@@ -65,15 +65,16 @@ class Cloud:
 	def form_cloud(self):
 		text = Cloud.get_words()
 		print text
-		wordcloud = WordCloud().generate_from_text(text)
+		wordcloud = WordCloud(width=width, height=height, scale=scale).generate_from_text(text)
 		plt.imshow(wordcloud)
 		plt.axis("off")
 		plt.show()
-
-
-
+		WordCloud.to_file(wordcloud, "out.png")
 
 
 """API DEMONSTRATION"""
+width=1920
+height = 1080
+scale = 1
 cloud = Cloud(file_name = "file.txt")
 cloud.form_cloud()
